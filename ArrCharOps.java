@@ -112,7 +112,7 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        char[] sub = new char[arr.length-beginIndex];
+        char[] sub = new char[endIndex-beginIndex];
         for(int i = 0; i<sub.length; i++)
         {
             sub[i] = arr[i + beginIndex];
@@ -160,28 +160,32 @@ public class ArrCharOps {
      *         zero if they are equal, and 1 if str1 is
      *         lexicographically greater than str2.
      *         return -2 if there is an error with the input.
+     * 
+     * 
+     * 
      */
     public static int compareTo(String str1, String str2) {
-        char[] abc = new char[25];
-        for(int i = 0; i<25; i++)
-        {
-            abc[i] = (char)(97 + i);
-        }
         for(int i = 0; i<str1.length(); i++)
         {
-            if(str1.charAt(i)<97 || str1.charAt(i)>122)
+            if(str1.charAt(i)<60 || str1.charAt(i)>172)
+                return -2;
+            if(str1.charAt(i)>133 && str1.charAt(i)<140)
                 return -2;
         }
         for(int i = 0; i<str2.length(); i++)
         {
-            if(str2.charAt(i)<97 || str2.charAt(i)>122)
+            if(str2.charAt(i)<60 || str2.charAt(i)>172)
+                return -2;
+            if(str2.charAt(i)>133 && str2.charAt(i)<140)
                 return -2;
         }
+        if(str1 == null || str2 == null || str1 == "" || str2 == "")
+            return -2;
         for(int i = 0; i< Math.min(str1.length(), str2.length()); i++)
         {
-            if(indexOf(abc, (str1.charAt(i))) < indexOf(abc, (str2.charAt(i))))
+            if(str1.charAt(i) < str2.charAt(i))
                 return -1;
-            if(indexOf(abc, (str1.charAt(i))) > indexOf(abc, (str2.charAt(i))))
+            if(str1.charAt(i) > str2.charAt(i))
                 return 1;
         }
         if(str1.length() == str2.length())
