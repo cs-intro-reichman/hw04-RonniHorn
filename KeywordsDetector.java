@@ -43,16 +43,17 @@ public class KeywordsDetector {
                     }
                 }
                 else{
-                    currentWord+=sentences[i].charAt(j);
+                    currentWord+=sentences1[i].charAt(j);
                 }
                 j++;
-                 
             }
-            
+            if(compareToKeywords(sentences1[i].substring(j), keywords) == true){
+                System.out.println(sentences[i]);
+            }
         }
-    }
-    public static boolean compareToKeywords(String s, String[] keywords)
-
+        
+        }
+        public static boolean compareToKeywords(String s, String[] keywords)
     {
 
         for(int i = 0; i<keywords.length; i++)
