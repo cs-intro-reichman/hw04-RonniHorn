@@ -11,7 +11,7 @@ public class Primes {
         int j = 2;
         while(j<Math.sqrt(primes))
         {
-            for(int i = 2; primes>(i*j); i++)
+            for(int i = 2; primes>=(i*j); i++)
             {
                 if(nums[i*j] == true){
                     nums[i*j] = false;
