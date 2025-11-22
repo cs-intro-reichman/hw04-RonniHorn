@@ -21,6 +21,65 @@ public class KeywordsDetector {
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+        String[] sentences1 = capital(sentences);
+        keywords = capital(keywords);
+        String currentWord = "";
+        for(int i = 0; i<sentences1.length; i++) // sent array
+        {
+            int j = 0;
+            currentWord = ""; // word in a sent
+            while(j<sentences1[i].length()) //if i didnt reach the end
+            {
+
+                if(sentences1[i].charAt(j) == ' ')
+                {
+                    if(compareToKeywords(currentWord, keywords) == true){
+                        System.out.println(sentences[i]);
+                        currentWord = "";
+                        break;
+                    }
+                    else{
+                        currentWord = "";
+                    }
+                }
+                else{
+                    currentWord+=sentences1[i].charAt(j);
+                }
+                j++;
+            }
+            if(compareToKeywords(sentences1[i].substring(j), keywords) == true){
+                System.out.println(sentences[i]);
+            }
+        }
+        
+        }
+        public static boolean compareToKeywords(String s, String[] keywords)
+    {
+
+        for(int i = 0; i<keywords.length; i++)
+        {
+            if(keywords[i].length() == s.length())
+            {
+                int j = 0;
+                while((j<keywords[i].length()) && (s.charAt(j) == keywords[i].charAt(j)))
+                {
+                    j++;
+                }
+                if(j == keywords[i].length())
+                    return true;
+            }
+            
+        }
+        return false;
+    }
+
+    public static String[] capital(String[] str)
+    {
+        String[] newString = new String[str.length];
+        for(int i = 0; i<str.length; i++)
+        {
+            newString[i] = str[i].toLowerCase();
+        }
+        return newString;
     }
 }
