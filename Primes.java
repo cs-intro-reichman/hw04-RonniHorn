@@ -33,6 +33,6 @@ public class Primes {
         //There are 10 primes between 2 and 30 (33% are primes) 
         int percent = (int)(double)(((double)count/(double)primes)*100);
 
-        System.out.println("There are " + count + " primes between 2 and " + primes + "(" + percent + "% are primes)");
+        System.out.println("There are " + count + " primes between 2 and " + primes + " (" + percent + "% are primes)");
     }
 }
