@@ -1,15 +1,15 @@
 public class Primes {
     public static void main(String[] args) {
         int primes = Integer.parseInt(args[0]);
-        boolean[] nums = new boolean[primes];
+        boolean[] nums = new boolean[primes+1];
         nums[0] = false;
         nums[1] = false;
-        for(int i = 2; i<primes; i++)
+        for(int i = 2; i<=primes; i++)
         {
             nums[i] = true;
         }
         int j = 2;
-        while(j<Math.sqrt(primes))
+        while(j<=Math.sqrt(primes))
         {
             for(int i = 2; primes>=(i*j); i++)
             {
@@ -22,7 +22,7 @@ public class Primes {
         }
         System.out.println("Prime numbers up to " + primes +":");
         int count = 0;
-        for(int i = 0; i<primes; i++)
+        for(int i = 0; i<=primes; i++)
         {
             if(nums[i] == true){
                 System.out.println(i);
